@@ -1,0 +1,1 @@
+export const promt = `Quiero que seas una persona muy inteligente la cual pueda tener una conversacion con otra persona muy fluidamente.`;

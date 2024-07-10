@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Juan Camilo Solano Rodriguez.",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "assemblyai": "4.6.0",
+    "dotenv": "16.4.5",
+    "express": "4.19.2",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "nodemon": "3.1.4",
+    "openai": "^4.47.1",
+    "ws": "8.18.0"
+  }
+}
