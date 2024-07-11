@@ -24,7 +24,10 @@ export const transcribeAudio = async (audioFilePath) => {
     };
 
     const transcript = await client.transcripts.transcribe(params);
-    await deleteFile(audioFilePath);
+    
+    //await deleteFile(audioFilePath);
+
+    console.log(`esto es lo que se trascribe de el audio: ${transcript.text}`)
     return transcript.text;
   } catch (error) {
     console.error(`Ocurrió un error en el proceso de Speech to text de AssemblyAI: ${error}`);
