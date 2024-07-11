@@ -9,6 +9,7 @@ import { textToVoice } from './utils/textToSpech.js';
 import { chat } from './utils/OpenIA/ConversacionChatgpt.js';
 import { promt } from './utils/OpenIA/promt.js';
 import { Writer } from 'wav';
+import { deleteFile } from './utils/deleteFile.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -35,14 +36,18 @@ wss.on('connection', (ws) => {
             writer.write(audioBuffer);
             writer.end();
 
-            // Procesar el archivo de audio
             const transcription = await transcribeAudio(audioFilePath);
             const respuestaOpenIA = await chat(promt, transcription);
-            const audioTranscript = await textToVoice(respuestaOpenIA);
+            const pathFileTextoAvoz = await textToVoice(respuestaOpenIA);
 
             console.log(`Respuesta generada: ${respuestaOpenIA}`);
-            console.log(`Archivo de audio generado: ${audioTranscript}`);
+            //console.log(`Archivo de audio generado: ${pathFileTextoAvoz}`);
 
+            const audioFileBuffer = fs.readFileSync(pathFileTextoAvoz);
+
+            //await deleteFile(pathFileTextoAvoz);
+
+            ws.send(audioFileBuffer);
             ws.send('Audio recibido y procesado correctamente.');
         } catch (error) {
             console.error(`Error en la transcripción de audio: ${error}`);

@@ -24,8 +24,8 @@ export const transcribeAudio = async (audioFilePath) => {
     };
 
     const transcript = await client.transcripts.transcribe(params);
-    
-    //await deleteFile(audioFilePath);
+
+    await deleteFile(audioFilePath);
 
     console.log(`esto es lo que se trascribe de el audio: ${transcript.text}`)
     return transcript.text;
