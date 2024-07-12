@@ -41,14 +41,12 @@ wss.on('connection', (ws) => {
             const pathFileTextoAvoz = await textToVoice(respuestaOpenIA);
 
             console.log(`Respuesta generada: ${respuestaOpenIA}`);
-            //console.log(`Archivo de audio generado: ${pathFileTextoAvoz}`);
 
             const audioFileBuffer = fs.readFileSync(pathFileTextoAvoz);
 
-            //await deleteFile(pathFileTextoAvoz);
+            await deleteFile(pathFileTextoAvoz);
 
             ws.send(audioFileBuffer);
-            ws.send('Audio recibido y procesado correctamente.');
         } catch (error) {
             console.error(`Error en la transcripción de audio: ${error}`);
             ws.send('Error en el servidor al procesar el audio.');

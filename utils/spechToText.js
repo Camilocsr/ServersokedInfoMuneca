@@ -13,6 +13,7 @@ import { deleteFile } from './deleteFile.js';
  * processing it through AssemblyAI's transcription service.
  */
 export const transcribeAudio = async (audioFilePath) => {
+  console.log(audioFilePath)
   const client = new AssemblyAI({
     apiKey: process.env.ApiKeyAssembly
   });
@@ -25,7 +26,7 @@ export const transcribeAudio = async (audioFilePath) => {
 
     const transcript = await client.transcripts.transcribe(params);
 
-    await deleteFile(audioFilePath);
+    //await deleteFile(audioFilePath);
 
     console.log(`esto es lo que se trascribe de el audio: ${transcript.text}`)
     return transcript.text;
