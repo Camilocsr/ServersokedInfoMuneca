@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import http from 'http';
 import { WebSocketServer } from 'ws';
-import fs from 'fs'; // Importar fs para trabajar con archivos
+import fs from 'fs';
 import path from 'path';
 import { transcribeAudio } from './utils/spechToText.js';
 import { textToVoice } from './utils/textToSpech.js';
@@ -62,7 +62,7 @@ wss.on('connection', (ws) => {
     });
 });
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT;
 server.listen(PORT, () => {
     console.log(`Servidor Express con WebSocket iniciado en el puerto ${PORT}`);
 });
