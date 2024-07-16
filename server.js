@@ -44,7 +44,7 @@ wss.on('connection', (ws) => {
 
             const audioFileBuffer = fs.readFileSync(pathFileTextoAvoz);
 
-            await deleteFile(pathFileTextoAvoz);
+            //await deleteFile(pathFileTextoAvoz);
 
             ws.send(audioFileBuffer);
         } catch (error) {

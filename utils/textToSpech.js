@@ -1,7 +1,7 @@
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
-import fetch from 'node-fetch';
+import axios from 'axios';
 import 'dotenv/config';
-import path from 'path'; // Importar path
+import path from 'path';
 
 /**
  * @param {string} text Texto que se convertirá en voz.
@@ -10,7 +10,7 @@ import path from 'path'; // Importar path
 export const textToVoice = async (text) => {
     try {
         const voiceId = process.env.VOZ_ELEVENLABS;
-        const EVENT_TOKEN = process.env.EVENT_TOKEN ?? "";
+        const EVENT_TOKEN = process.env.EVENT_TOKEN;
         const URL = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
 
         const header = {
@@ -28,15 +28,8 @@ export const textToVoice = async (text) => {
             },
         });
 
-        const requestOptions = {
-            method: "POST",
-            headers: header,
-            body: raw,
-            redirect: "follow",
-        };
-
-        const response = await fetch(URL, requestOptions);
-        const buffer = await response.arrayBuffer();
+        const response = await axios.post(URL, raw, { headers: header, responseType: 'arraybuffer' });
+        const buffer = Buffer.from(response.data, 'binary');
 
         const tmpDir = path.join(process.cwd(), 'temp');
         const pathFile = path.join(tmpDir, `${Date.now()}-audio.mp3`);
@@ -45,7 +38,7 @@ export const textToVoice = async (text) => {
             mkdirSync(tmpDir, { recursive: true });
         }
 
-        writeFileSync(pathFile, Buffer.from(buffer));
+        writeFileSync(pathFile, buffer);
 
         return pathFile;
 
