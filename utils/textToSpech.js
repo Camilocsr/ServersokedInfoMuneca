@@ -7,6 +7,7 @@ import path from 'path';
  * @param {string} text Texto que se convertirá en voz.
  * @returns {Promise<string>} Ruta del archivo de audio generado.
  */
+
 export const textToVoice = async (text) => {
     try {
         const voiceId = process.env.VOZ_ELEVENLABS;

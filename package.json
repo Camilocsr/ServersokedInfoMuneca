@@ -10,16 +10,16 @@
   "keywords": [],
   "author": "Juan Camilo Solano Rodriguez.",
   "license": "ISC",
-  "description": "",
+  "description": "Este es un servidor el cual funciona para dar informacion sobre distintos temas de la universitaria de colombia",
   "dependencies": {
     "assemblyai": "4.6.0",
     "axios": "^1.7.2",
     "dotenv": "16.4.5",
     "express": "4.19.2",
-    "fs": "^0.0.1-security",
+    "fs": "0.0.1-security",
     "nodemon": "3.1.4",
-    "openai": "^4.47.1",
-    "wav": "^1.0.2",
+    "openai": "4.47.1",
+    "wav": "1.0.2",
     "ws": "8.18.0"
   }
 }
