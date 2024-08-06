@@ -6,10 +6,9 @@ import fs from 'fs';
 import path from 'path';
 import { transcribeAudio } from './utils/spechToText.js';
 import { textToVoice } from './utils/textToSpech.js';
-import { chat } from './utils/OpenIA/ConversacionChatgpt.js';
-import { promt } from './utils/OpenIA/promt.js';
 import { Writer } from 'wav';
 import { deleteFile } from './utils/deleteFile.js';
+import { runChat } from './services/langchain/chat.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -37,7 +36,7 @@ wss.on('connection', (ws) => {
             writer.end();
 
             const transcription = await transcribeAudio(audioFilePath);
-            const respuestaOpenIA = await chat(promt, transcription);
+            const respuestaOpenIA = await runChat(transcription);;
             const pathFileTextoAvoz = await textToVoice(respuestaOpenIA);
 
             console.log(`Respuesta generada: ${respuestaOpenIA}`);
