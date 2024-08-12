@@ -36,8 +36,11 @@ wss.on('connection', (ws) => {
             writer.end();
 
             const transcription = await transcribeAudio(audioFilePath);
-            const respuestaOpenIA = await runChat(transcription);;
+            const respuestaOpenIA = await runChat(transcription);
+            console.log(`esta es la respuesta de openIA: ${respuestaOpenIA}`);
             const pathFileTextoAvoz = await textToVoice(respuestaOpenIA);
+
+            console.log(`esta es la ruta del audio de elevenlabs: ${pathFileTextoAvoz}`);
 
             console.log(`Respuesta generada: ${respuestaOpenIA}`);
 

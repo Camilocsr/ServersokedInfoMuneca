@@ -3,9 +3,9 @@ import { PineconeStore } from "@langchain/pinecone";
 import { initPinecone } from "../pinecone/connect.js";
 import { chainIntent } from "./index.js";
 
-const runChat = async ( question)=>{
+const runChat = async (question) => {
     const pinecone = await initPinecone();
-    const index = pinecone.Index(`${process.env.PINECONE_INDEX_NAME}`)
+    const index = pinecone.Index(`${process.env.PINECONE_INDEX_NAME}`);
 
     const loadedVector = await PineconeStore.fromExistingIndex(
         new OpenAIEmbeddings({}),
@@ -22,7 +22,9 @@ const runChat = async ( question)=>{
         question: sanitizedQuestion,
     });
 
-    return {response};
-}
+    console.dir(response, { depth: null });
+
+    return response;
+};
 
 export { runChat };
