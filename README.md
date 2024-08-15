@@ -44,6 +44,18 @@ Este proyecto es un servidor que se encarga de dar informacion sobre lo que tu d
 - **Elevenlabs**: Elevenlabs se usa para clonar voces y para sistetisar el texto.
 - **JavaScript**: Lenguaje de programacion utilizado en el proceso.
 
+## Configuración de Variables de Entorno
+
+Recuerda poner las variables de entorno que están especificadas en el archivo `.env.example`. Este archivo contiene las variables necesarias para el funcionamiento de la aplicación. 
+
+**Pasos para configurar:**
+
+1. Copia el archivo `.env.example` y renómbralo a `.env`.
+2. Abre el archivo `.env` y actualiza las variables según tus cuentas de las tecnologias usadas en este proyecto.
+
+> [!Note]
+   > Asegúrate de no subir el archivo `.env` a tu repositorio para mantener tus credenciales seguras.
+
 ## Instalación
 
 1. **Clonar el repositorio**:
@@ -55,13 +67,18 @@ Este proyecto es un servidor que se encarga de dar informacion sobre lo que tu d
    cd ServersokedInfoMuneca
    ```
 
-3. **Instalacion del server**:
+3. **Dependencias**:
    - Instala todo el peyecto con el siguiente commando.
       ```bash
       npm install
       ```
    > [!Note]
    > En dado caso de que se genere un error revisa la consola o instala las dependencias manualmente.
+
+3. **Ejecucion**:
+      ```bash
+      npm run dev
+      ```
 
 4. **Revisa la documentacion del servidor**:
    - Este servidor fue creado en conjunto con un proyecto en unity el cual resive la info de este server pero eso no significa que no pueda ser usado en otros proyectos: [Proyecto de unity](https://github.com/Camilocsr/UnityIsaccMuneca.git)
