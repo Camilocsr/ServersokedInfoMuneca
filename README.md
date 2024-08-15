@@ -32,32 +32,33 @@ Este proyecto es un servidor que se encarga de dar informacion sobre lo que tu d
 
 ## Tecnologías Utilizadas
 
-- **node.js**: Motor de desarrollo para crear y animar la muñeca virtual.
+- **node.js**: Motor de desarrollo para crear todo el server.
 - **WebSocket**: Para la comunicación en tiempo real entre el cliente (Unity) y el servidor.
 - **Elevenlabs**: Esto sirve para sistetisar voces.
-- **AsembblyAI**: Esto sirve para el reconocimiento de voz. 
-- **C# y JavaScript**: Lenguajes de programación utilizados para el desarrollo del proyecto.
+- **AsembblyAI**: Esto sirve para el reconocimiento de voz. en este momento no se usa pero el codigo de su integracion esta en el proyecto.
+- **OpenIA**: OpenIA se usa para dar informacion sobre lo que se solicite.
+- **Wisper**: Wisper se usa para SpeechToText.
+- **Elevenlabs**: Elevenlabs se usa para clonar voces y para sistetisar el texto.
+- **JavaScript**: Lenguaje de programacion utilizado en el proceso.
 
 ## Instalación
 
 1. **Clonar el repositorio**:
    ```sh
-   git clone https://github.com/Camilocsr/UnityIsaccMuneca.git
+   git clone https://github.com/Camilocsr/ServersokedInfoMuneca.git
    ```
 2. **Entra a la carpeta**:
    ```sh
-   cd UnityIsaccMuneca
+   cd ServersokedInfoMuneca
    ```
 
-3. **Entrar a Unity**:
-   - Entra a Unity y agrega el proyecto a Unity y descarga la versión Unity te avisara cual es.
+3. **Instalacion del server**:
+   - Instala todo el peyecto con el siguiente commando.
+      ```bash
+      npm install
+      ```
    > [!Note]
-   > La version de unity tiene que ser exactamente la version 2022.3.30f1 si instalas otra 🤯
+   > En dado caso de que se genere un error revisa la consola o instala las dependencias manualmente.
 
-## Instalacion del server.
-1. **Clonar el repositorio**:
-   ```sh
-   git clone https://github.com/Camilocsr/ServersokedInfoMuneca.git
-   ```
-2. **Revisa la documentacion del servidor**:
-   - Para revisar la documentacion ve a: [server](https://github.com/Camilocsr/ServersokedInfoMuneca.git)
+4. **Revisa la documentacion del servidor**:
+   - Este servidor fue creado en conjunto con un proyecto en unity el cual resive la info de este server pero eso no significa que no pueda ser usado en otros proyectos: [Proyecto de unity](https://github.com/Camilocsr/UnityIsaccMuneca.git)
