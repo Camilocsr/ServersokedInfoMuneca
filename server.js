@@ -47,6 +47,7 @@ wss.on('connection', (ws) => {
             const audioFileBuffer = fs.readFileSync(pathFileTextoAvoz);
 
             await deleteFile(pathFileTextoAvoz);
+            await deleteFile(audioFilePath);
 
             const header = Buffer.from(respuestaOpenIA + '---ENDHEADER---', 'utf-8');
             const message = Buffer.concat([header, audioFileBuffer]);
